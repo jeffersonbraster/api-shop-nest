@@ -10,7 +10,7 @@ type category {
 
 type Query {
   getAllCategories: [category!]!
-  getCategoriesById(id: String!): category!
+  getCategoryById(id: String!): category!
 }
 
 type Mutation {

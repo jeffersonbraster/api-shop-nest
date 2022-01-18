@@ -14,8 +14,8 @@ export class CategoryResolver {
     return await this.categoryService.findAll()
   }
 
-  @Query(returns => CategoryPublic, { name: 'getCategoriesById' })
-  async getCategoriesById(@Args('id') id: string): Promise<CategoryPublic> {
+  @Query(returns => CategoryPublic, { name: 'getCategoryById' })
+  async getCategoryById(@Args('id') id: string): Promise<CategoryPublic> {
     return await this.categoryService.findById(id)
   }
 
