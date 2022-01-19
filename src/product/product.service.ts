@@ -25,6 +25,8 @@ export class ProductService {
   async update(input: Product): Promise<Product> {
     await this.productRepository.update(input.id, {
       name: input.name,
+      description: input.description,
+      category: input.category,
       slug: input.slug,
     })
     return input
