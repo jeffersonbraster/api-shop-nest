@@ -4,8 +4,8 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { CategoryModule } from './category/category.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { Category } from './category/category.entity'
 import { ConfigModule, ConfigService } from '@nestjs/config'
+import { ProductModule } from './product/product.module'
 
 @Module({
   imports: [
@@ -18,7 +18,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
         url: configService.get('DATABASE_URL'),
         autoLoadEntities: true,
         synchronize: true,
-        entities: [Category],
         logging: true,
       }),
     }),
@@ -27,6 +26,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
       autoSchemaFile: 'schema.gql',
     }),
     CategoryModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
